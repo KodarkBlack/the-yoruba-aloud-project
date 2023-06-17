@@ -17,7 +17,7 @@ signIn.addEventListener('click',(event) => {
     signIn.innerText = "Loading...";
     signIn.classList.add("pulse");
 
-    // Check if the email and password are not empty strings and throw appropriate sweet alert, 
+    // Check if the email and password are not empty strings and throw appropriate sweet alert, hhh
     if (
         email === ""  || password === "") {
         Swal.fire({
