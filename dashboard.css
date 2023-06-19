@@ -57,7 +57,7 @@
     color: var(--blue);
 }
   
-.navigation ul li a .icon {
+.navigation ul li a .bx {
     position: relative;
     display: block;
     min-width: 60px;
@@ -166,40 +166,42 @@
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* .cardBox .card {
-    position: relative;
-    background: var(--white);
-    padding: 30px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-}
-  
-.cardBox .card .numbers {
+.cardCat .cardCont .numbers {
     position: relative;
     font-weight: 500;
     font-size: 2.5rem;
     color: var(--blue);
 }
+
   
-.cardBox .card .cardName {
+.cardCat .cardCont .cardName {
     color: var(--black2);
     font-size: 1.1rem;
     margin-top: 5px;
 }
   
-.cardBox .card .iconBx {
+.cardCat .cardCont .iconBx {
     font-size: 3.5rem;
     color: var(--black2);
 }
   
-.cardBox .card:hover {
+.cardCat .cardCont:hover {
     background: var(--blue);
 }
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
-    color: var(--white);
-} */
+.cardCat .cardCont:hover .numbers,
+.cardCat .cardCont:hover .cardName,
+.cardCat .cardCont:hover .iconBx {
+    color: var(--blue);
+}
+
+.cardBtn {
+    background: blue;
+    width: 70%;
+    height: 50px;
+    text-align: center;
+    margin-top: 8%;
+    margin-left: 15%;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+}
