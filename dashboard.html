@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard | Yoruba Aloud</title>
     <link rel="stylesheet" href="dashboard.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -49,14 +49,14 @@
           </li>
 
           <li>
-            <a href="">
+            <a href="admin.html">
               <span class="bx bxs-id-card"></span>
               <span class="title">Admin Profile</span>
             </a>
           </li>
 
           <li>
-            <a href="">
+            <a href="#" class="logout" onclick="logout()">
               <span class="bx bxs-log-out-circle"></span>
               <span class="title">Logout</span>
             </a>
@@ -66,60 +66,131 @@
       </div>
     </div>
 
-    <!-- =========== The Hamburger Toggle ============ -->
 
-    <div class="main">
-      <div class="topbar">
-          <div class="toggle">
-              <ion-icon name="menu-outline"></ion-icon>
+      <section>
+        <div class="main">
+          <div class="topbar">
+              <div class="toggle">
+                  <ion-icon name="menu-outline"></ion-icon>
+              </div>
+        </div>
+    
+          <h3>Kodark Black</h3>
+           
+
+        <main>
+          <div class="cardCat">
+            <div class="cardCont">
+              <span class='fa-solid fa-books'></span>
+              <h2 class="cardName">Total Categories</h2>
+              <span id="category"></span>
+            </div>
+    
+            <div class="cardCont">
+              <span class='bx bx-book-content'></span>
+              <h2 class="cardName">Learning Materials</h2>
+              <span id="learningMaterials"></span>
+            </div>
+    
+            <div class="cardCont">
+              <span class='bx bx-book-content'></span>
+              <h2 class="cardName">Total Sub-Categories</h2>
+              <span id="subCategories"></span>
+            </div>
           </div>
-      </div>
-
-      <h3>Kodark Black</h3>
-
-      <!-- ========= Order Cards =========== -->
-
-      <div class="cardCat">
-        <div class="cardCont">
-          <span class='bx bx-book-content'></span>
-          <h2 class="cardName">Total Categories</h2>
-          <p class="numbers">2</p>
-        </div>
-
-        <div class="cardCont">
-          <span class='bx bx-book-content'></span>
-          <h2 class="cardName">Learning Materials</h2>
-          <p class="numbers">12</p>
-        </div>
-
-        <div class="cardCont">
-          <span class='bx bx-book-content'></span>
-          <h2 class="cardName">Total Sub-Categories</h2>
-          <p class="numbers">37</p>
-        </div>
-      </div>
-
-      <!-- ===== The Second card ======= -->
-
-      <div class="cardCat">
-        <div class="cardCont">
-          <span class='bx bx-book-content'></span>
-          <h2 class="cardName">Total Quiz</h2>
-          <p class="numbers">0</p>
-        </div>
-
-        <div class="cardCont">
-          <span class='bx bx-book-content'></span>
-          <h2 class="cardName">Total Students</h2>
-          <p class="numbers">9</p>
-        </div>
-
-        <div class="cardCont">
-          <button class="cardBtn">Top Three Student</button>
-        </div>
-      </div>
-
-
+    
+    
+          <div class="cardCat">
+            <div class="cardCont">
+              <span class='bx bx-book-content'></span>
+              <h2 class="cardName">Total Quiz</h2>
+              <span id="totalQuiz"></span>
+            </div>
+    
+            <div class="cardCont">
+              <span class='bx bx-book-content'></span>
+              <h2 class="cardName">Total Students</h2>
+              <span id="totalStudents"></span>
+            </div>
+    
+            <div class="cardCont">
+              <button class="cardBtn" id="topThreeStudents">Top Three Student</button>
+            </div>
+          </div>
+    
+          <!-- //Page modal -->
+          <div id="pageModal">
+            <svg
+              class="pl"
+              viewBox="0 0 200 200"
+              width="200"
+              height="200"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+                  <stop offset="0%" stop-color="#808080" />
+                  <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+                <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#808080" />
+                  <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+              </defs>
+              <circle
+                class="pl__ring"
+                cx="100"
+                cy="100"
+                r="82"
+                fill="none"
+                stroke="url(#pl-grad1)"
+                stroke-width="36"
+                stroke-dasharray="0 257 1 257"
+                stroke-dashoffset="0.01"
+                stroke-linecap="round"
+                transform="rotate(-90,100,100)"
+              />
+              <line
+                class="pl__ball"
+                stroke="url(#pl-grad2)"
+                x1="100"
+                y1="18"
+                x2="100.01"
+                y2="182"
+                stroke-width="36"
+                stroke-dasharray="1 165"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+  
+          <div id="studentModal">
+            <div id="studentModalTitle">
+              <span>Top Three Students</span>
+              <i class="bx bx-x" onclick="closeStudentModal()"></i>
+            </div>
+            <div id="topThreeScores"></div>
+          </div>
+  
+          <!-- //All Students Table -->
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Position</th>
+                  <th>Total Score</th>
+                </tr>
+              </thead>
+              <tbody id="allStudents"></tbody>
+            </table>
+          </div>
+    
+        </main>
+  
+      </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="/dashboard.js"></script>

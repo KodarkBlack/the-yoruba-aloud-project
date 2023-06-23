@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./dashboard.css" />
+
+    <title>Yoruba Aloud | Admin Dashboard</title>
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.ico" />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+      <a href="#" class="brand">
+        <i class="bx bxl-ok-ru"></i><span>Yoruba Aloud</span>
+      </a>
+      <ul class="side-menu top">
+        <li>
+          <a href="#" class="active">
+            <i class="bx bx-home"></i> <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="category.html">
+            <i class="bx bx-category"></i>
+            <span class="text">Categories</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-book-content"></i>
+            <span class="text">Learning Materials</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-certification"></i>
+            <span class="text">Quiz</span>
+          </a>
+        </li>
+        <li>
+          <a href="admin.html">
+            <i class="bx bxs-user-detail"></i>
+            <span class="text">Admin Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="logout" onclick="logout()">
+            <i class="bx bxs-log-out-circle"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+        <i class="bx bx-menu"></i>
+        <span class="user-admin" id="adminUserName"></span>
+      </nav>
+      <!-- NAVBAR -->
+
+      <!-- MAIN -->
+      <main>
+        <!-- //Card Container -->
+        <div class="info__card-container">
+          <div class="info__card">
+            <i class="bx bx-library"></i>
+            <span>Total Categories</span>
+            <span id="category"></span>
+          </div>
+          <div class="info__card">
+            <i class="bx bx-book-content"></i>
+            <span>Learning Materials</span>
+            <span id="learningMaterials"></span>
+          </div>
+          <div class="info__card">
+            <i class="bx bx-library"></i>
+            <span>Total Sub-Categories</span>
+            <span id="subCategories"></span>
+          </div>
+          <div class="info__card">
+            <i class="bx bx-certification"></i>
+            <span>Total Quiz</span>
+            <span id="totalQuiz"></span>
+          </div>
+          <div class="info__card">
+            <i class="bx bxs-graduation"></i>
+            <span>Total Students</span>
+            <span id="totalStudents"></span>
+          </div>
+          <div class="info__card">
+            <button id="topThreeStudent">Top Three Student</button>
+          </div>
+        </div>
+
+        <!-- //Page modal -->
+        <div id="pageModal">
+          <svg
+            class="pl"
+            viewBox="0 0 200 200"
+            width="200"
+            height="200"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+                <stop offset="0%" stop-color="#808080" />
+                <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+              </linearGradient>
+              <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#808080" />
+                <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+              </linearGradient>
+            </defs>
+            <circle
+              class="pl__ring"
+              cx="100"
+              cy="100"
+              r="82"
+              fill="none"
+              stroke="url(#pl-grad1)"
+              stroke-width="36"
+              stroke-dasharray="0 257 1 257"
+              stroke-dashoffset="0.01"
+              stroke-linecap="round"
+              transform="rotate(-90,100,100)"
+            />
+            <line
+              class="pl__ball"
+              stroke="url(#pl-grad2)"
+              x1="100"
+              y1="18"
+              x2="100.01"
+              y2="182"
+              stroke-width="36"
+              stroke-dasharray="1 165"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <!-- //Student Modal -->
+        <div id="studentModal">
+          <div id="studentModalTitle">
+            <span>Top Three Students</span>
+            <i class="bx bx-x" onclick="closeStudentModal()"></i>
+          </div>
+          <div id="topThreeScores"></div>
+        </div>
+
+        <!-- //All Students Table -->
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Position</th>
+                <th>Total Score</th>
+              </tr>
+            </thead>
+            <tbody id="allStudents"></tbody>
+          </table>
+        </div>
+      </main>
+      <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="./dashboard.js"></script>
+  </body>
+</html>
