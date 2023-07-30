@@ -53,7 +53,7 @@ signIn.addEventListener('click',(event) => {
             const adminObj = JSON.parse(getAdminObj);
 
             if(adminObj.hasOwnProperty("email")) {
-                location.href = "dashboard.html";
+                location.href = "dashboardfix.html";
             } else {
                 Swal.fire({
                     icon: "warning",

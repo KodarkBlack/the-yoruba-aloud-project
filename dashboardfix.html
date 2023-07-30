@@ -1,185 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>| Admin Dashboard | </title>
+  <!-- ========= CSS =============== -->
+  <link rel="stylesheet" href="dashboard.css">
 
-    <!-- Boxicons -->
-    <link
-      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <!-- My CSS -->
-    <link rel="stylesheet" href="./dashboard.css" />
+  <!-- ==================== FONT AWESOME =================== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-    <title>Yoruba Aloud | Admin Dashboard</title>
-    <link rel="shortcut icon" type="image/png" href="./img/favicon.ico" />
-  </head>
-  <body>
-    <!-- SIDEBAR -->
-    <section id="sidebar">
-      <a href="#" class="brand">
-        <i class="bx bxl-ok-ru"></i><span>Yoruba Aloud</span>
-      </a>
-      <ul class="side-menu top">
-        <li>
-          <a href="#" class="active">
-            <i class="bx bx-home"></i> <span class="text">Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="category.html">
-            <i class="bx bx-category"></i>
-            <span class="text">Categories</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-book-content"></i>
-            <span class="text">Learning Materials</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="bx bx-certification"></i>
-            <span class="text">Quiz</span>
-          </a>
-        </li>
-        <li>
-          <a href="admin.html">
-            <i class="bx bxs-user-detail"></i>
-            <span class="text">Admin Profile</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="logout" onclick="logout()">
-            <i class="bx bxs-log-out-circle"></i>
-            <span class="text">Logout</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-    <!-- SIDEBAR -->
+  <!-- ==================== BOXICONS =================== -->
 
-    <!-- CONTENT -->
-    <section id="content">
-      <!-- NAVBAR -->
-      <nav>
-        <i class="bx bx-menu"></i>
-        <span class="user-admin" id="adminUserName"></span>
-      </nav>
-      <!-- NAVBAR -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<!-- =========  HEAD TAG ENDS HERE   =========== -->
 
-      <!-- MAIN -->
-      <main>
-        <!-- //Card Container -->
-        <div class="info__card-container">
-          <div class="info__card">
-            <i class="bx bx-library"></i>
-            <span>Total Categories</span>
-            <span id="category"></span>
-          </div>
-          <div class="info__card">
-            <i class="bx bx-book-content"></i>
-            <span>Learning Materials</span>
-            <span id="learningMaterials"></span>
-          </div>
-          <div class="info__card">
-            <i class="bx bx-library"></i>
-            <span>Total Sub-Categories</span>
-            <span id="subCategories"></span>
-          </div>
-          <div class="info__card">
-            <i class="bx bx-certification"></i>
-            <span>Total Quiz</span>
-            <span id="totalQuiz"></span>
-          </div>
-          <div class="info__card">
-            <i class="bx bxs-graduation"></i>
-            <span>Total Students</span>
-            <span id="totalStudents"></span>
-          </div>
-          <div class="info__card">
-            <button id="topThreeStudent">Top Three Student</button>
-          </div>
+
+<!-- ==========BODY STARTS HERE ========== -->
+<body>
+  <!-- ============== THE SIDE NAVIGATION -->
+  <section class="navigation">
+    <ul>
+      <li>
+        <a href="">
+          <span class="fab fa-odnoklassniki fa-lag"><h3>Yoruba Aloud</h3></span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="bx bx-home"></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="bx bx-category"></span>
+          <span id="table-title" class="title">Categories</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="bx bx-book-content"></span>
+          <span class="title">Learning Materials</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <span class="bx bx-certification"></span>
+          <span class="title">Quiz</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="admin.html">
+          <span class="bx bxs-id-card"></span>
+          <span class="title">Admin Profile</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="signin.html" class="logout" onclick="logout()">
+          <span class="bx bxs-log-out-circle"></span>
+          <span class="title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="navigation" class="main">
+    <div class="topbar">
+      <ion-icon class="toggle" name="menu-outline"></ion-icon>
+      <input type="search" name="Search" id="dash-search" class="dash-search">
+      <h3>Olufisayo</h3>
+    </div>
+
+    <div id="modal-content" class="top-three-students-modal" style="display: none;">
+      <div class="the-content">
+        <h3>top three students</h3>
+        <div>
+          <p>Name: Mat okwesi</p>
+          <p>Email: matos@gmail.com</p>
+          <p>Phone: 12345678</p>
+          <p>Position: 1st</p>
+          <p>Score: 87,000</p>
         </div>
 
-        <!-- //Page modal -->
-        <div id="pageModal">
-          <svg
-            class="pl"
-            viewBox="0 0 200 200"
-            width="200"
-            height="200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
-                <stop offset="0%" stop-color="#808080" />
-                <stop offset="100%" stop-color="hsl(223,90%,55%)" />
-              </linearGradient>
-              <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#808080" />
-                <stop offset="100%" stop-color="hsl(223,90%,55%)" />
-              </linearGradient>
-            </defs>
-            <circle
-              class="pl__ring"
-              cx="100"
-              cy="100"
-              r="82"
-              fill="none"
-              stroke="url(#pl-grad1)"
-              stroke-width="36"
-              stroke-dasharray="0 257 1 257"
-              stroke-dashoffset="0.01"
-              stroke-linecap="round"
-              transform="rotate(-90,100,100)"
-            />
-            <line
-              class="pl__ball"
-              stroke="url(#pl-grad2)"
-              x1="100"
-              y1="18"
-              x2="100.01"
-              y2="182"
-              stroke-width="36"
-              stroke-dasharray="1 165"
-              stroke-linecap="round"
-            />
-          </svg>
+        <hr>
+
+        <div>
+          <p>Name: Mat okwesi</p>
+          <p>Email: matos@gmail.com</p>
+          <p>Phone: 12345678</p>
+          <p>Position: 1st</p>
+          <p>Score: 87,000</p>
         </div>
 
-        <!-- //Student Modal -->
-        <div id="studentModal">
-          <div id="studentModalTitle">
-            <span>Top Three Students</span>
-            <i class="bx bx-x" onclick="closeStudentModal()"></i>
-          </div>
-          <div id="topThreeScores"></div>
+
+        <hr>
+
+        <div>
+          <p>Name: Mat okwesi</p>
+          <p>Email: matos@gmail.com</p>
+          <p>Phone: 12345678</p>
+          <p>Position: 1st</p>
+          <p>Score: 87,000</p>
         </div>
 
-        <!-- //All Students Table -->
-        <div class="table">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Position</th>
-                <th>Total Score</th>
-              </tr>
-            </thead>
-            <tbody id="allStudents"></tbody>
-          </table>
-        </div>
-      </main>
-      <!-- MAIN -->
-    </section>
-    <!-- CONTENT -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <button class="modal-close" id="close-modal-three-student">close</button>
 
-    <script src="./dashboard.js"></script>
-  </body>
+      </div>
+    </div>
+
+    <div class="cardCat">
+      <div class="cardCont">
+        <span class='fa-solid fa-books'></span>
+        <h2 class="cardName">Total Categories</h2>
+        <span id="category">4</span>
+      </div>
+
+      <div class="cardCont">
+        <span class='bx bx-book-content'></span>
+        <h2 class="cardName">Learning Materials</h2>
+        <span id="learningMaterials">7</span>
+      </div>
+
+      <div class="cardCont">
+        <span class='bx bx-book-content'></span>
+        <h2 class="cardName">Total Sub-Categories</h2>
+        <span id="subCategories">9</span>
+      </div>
+    </div>
+
+    <div class="cardCat">
+      <div class="cardCont">
+        <span class='fa-solid fa-books'></span>
+        <h2 class="cardName">Total Categories</h2>
+        <span id="category">9</span>
+      </div>
+
+      <div class="cardCont">
+        <span class='bx bx-book-content'></span>
+        <h2 class="cardName">Learning Materials</h2>
+        <span id="learningMaterials">0</span>
+      </div>
+
+      <div class="cardCont">
+        <button id="three-student-modal" class="three-student-modal">Top Three Students</button>
+      </div>
+
+
+    </div>
+
+    <table id="table-content-modal" bgcolor="black" width="700px" class="table-content" style="display: block;">
+      <tr class="the-table-header">
+        <th width="100px">Name</th>
+        <th width="100px">Email</th>
+        <th width="100px">Phone Number</th>
+        <th width="100px">Position</th>
+        <th width="100px">Total Score</th>
+      </tr>
+
+      <tr bgcolor="lightgrey" align="center">
+        <td width="100px">Nifemi</td>
+        <td width="100px">okwesmmartins@omall.com</td>
+        <td width="100px">08074511396</td>
+        <td width="100px">5</td>
+        <td width="100px">555</td>
+      </tr>
+
+      <tr bgcolor="lightgrey" align="center">
+        <td width="100px">Nifemi</td>
+        <td width="100px">okwesmmartins@omall.com</td>
+        <td width="100px">08074511396</td>
+        <td width="100px">5</td>
+        <td width="100px">555</td>
+      </tr>
+
+      <tr bgcolor="lightgrey" align="center">
+        <td width="100px">Nifemi</td>
+        <td width="100px">okwesmmartins@omall.com</td>
+        <td width="100px">08074511396</td>
+        <td width="100px">5</td>
+        <td width="100px">555</td>
+      </tr>
+
+      <tr bgcolor="lightgrey" align="center">
+        <td width="100px">Nifemi</td>
+        <td width="100px">okwesmmartins@omall.com</td>
+        <td width="100px">08074511396</td>
+        <td width="100px">5</td>
+        <td width="100px">555</td>
+      </tr>
+
+      <tr bgcolor="lightgrey" align="center">
+        <td width="100px">Nifemi</td>
+        <td width="100px">okwesmmartins@omall.com</td>
+        <td width="100px">08074511396</td>
+        <td width="100px">5</td>
+        <td width="100px">555</td>
+      </tr>
+
+      <tr bgcolor="lightgrey" align="center">
+        <td width="100px">Nifemi</td>
+        <td width="100px">okwesmmartins@omall.com</td>
+        <td width="100px">08074511396</td>
+        <td width="100px">5</td>
+        <td width="100px">555</td>
+      </tr>
+    </table>
+  </section>
+
+
+
+  <!-- ========= EXTERNAL SCRIPT TAGS STARTS ========== -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <script src="dash.js"></script>
+
+  <script src="dashboard.js"></script>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- ========= EXTERNAL SCRIPT TAGS ENDS ========== -->
+</body>
 </html>

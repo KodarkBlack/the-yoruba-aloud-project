@@ -60,7 +60,7 @@ signUp.addEventListener("click", (event) => {
         if (result.status === "success") {
           Swal.fire({
             icon: "success",
-            text: 'icon',
+            text: 'Success go back to sign-in',
             confirmButtonText: "ok",
           });
 
